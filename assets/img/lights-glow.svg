@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48">
+  <defs>
+    <filter id="g" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+  </defs>
+  <g filter="url(#g)">
+    <circle cx="30" cy="31" r="10" fill="#f2c94c" opacity=".8"/>
+    <circle cx="130" cy="31" r="10" fill="#46b97a" opacity=".7"/>
+  </g>
+</svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="48" viewBox="0 0 200 48">
+  <defs>
+    <filter id="g" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="3"/></filter>
+  </defs>
+  <path d="M0 8 C50 30 50 30 100 8 C150 30 150 30 200 8" fill="none" stroke="#0b1428" stroke-width="1.5"/>
+  <g filter="url(#g)" opacity=".45">
+    <circle cx="30" cy="31" r="7" fill="#f2c94c"/>
+    <circle cx="70" cy="31" r="7" fill="#e5484d"/>
+    <circle cx="130" cy="31" r="7" fill="#46b97a"/>
+    <circle cx="170" cy="31" r="7" fill="#fff4d6"/>
+  </g>
+  <g>
+    <rect x="27.5" y="19" width="5" height="5" rx="1" fill="#2a3346"/>
+    <ellipse cx="30" cy="31" rx="4.5" ry="7" fill="#f2c94c"/>
+    <rect x="67.5" y="19" width="5" height="5" rx="1" fill="#2a3346"/>
+    <ellipse cx="70" cy="31" rx="4.5" ry="7" fill="#e5484d"/>
+    <rect x="127.5" y="19" width="5" height="5" rx="1" fill="#2a3346"/>
+    <ellipse cx="130" cy="31" rx="4.5" ry="7" fill="#46b97a"/>
+    <rect x="167.5" y="19" width="5" height="5" rx="1" fill="#2a3346"/>
+    <ellipse cx="170" cy="31" rx="4.5" ry="7" fill="#fff4d6"/>
+  </g>
+  <g fill="#fff" opacity=".55">
+    <ellipse cx="28.5" cy="28" rx="1.2" ry="2.4"/>
+    <ellipse cx="68.5" cy="28" rx="1.2" ry="2.4"/>
+    <ellipse cx="128.5" cy="28" rx="1.2" ry="2.4"/>
+    <ellipse cx="168.5" cy="28" rx="1.2" ry="2.4"/>
+  </g>
+</svg>

@@ -1,0 +1,9 @@
+{
+  "name": "poca-50th",
+  "private": true,
+  "description": "POCA 50th Anniversary site. Static HTML/CSS/JS: no dependencies, no build step.",
+  "scripts": {
+    "dev": "npx serve@14.2.4 . -l 3000",
+    "start": "npx serve@14.2.4 . -l 3000"
+  }
+}
