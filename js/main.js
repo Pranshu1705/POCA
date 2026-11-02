@@ -86,8 +86,16 @@
       $$("[data-letter-pdf]").forEach(function (a) { setHref(a, D.LETTER_PDF); });
     }
     if (D.HERO_TOTAL) {
+      var total = fmt(D.HERO_TOTAL.value) + (D.HERO_TOTAL.suffix || "");
       var h = $('[data-bind="hero-total"]');
-      if (h) { h.dataset.count = D.HERO_TOTAL.value; setText(h, fmt(D.HERO_TOTAL.value)); }
+      if (h && h.textContent !== total) {
+        h.textContent = total;
+        var odo = $("[data-odo]");
+        if (odo) odo.innerHTML = total.split("").map(function (ch) {
+          if (ch === ",") return '<span class="odo-sep">,</span>';
+          return /\d/.test(ch) ? '<span class="odo-d">' + ch + "</span>" : '<span class="odo-cur">' + ch + "</span>";
+        }).join("");
+      }
     }
     if (D.STATS) {
       $$("[data-stats] .stat").forEach(function (li, i) {
@@ -424,38 +432,33 @@
         animateCount(en.target, en.boundingClientRect.width);
       });
     }, { threshold: 0.6 });
-    // Stat counters are started by initGifts once their wrapping is off.
-    $$("[data-count]").forEach(function (el) { if (!el.hasAttribute("data-gift-count")) io.observe(el); });
+    $$("[data-count]").forEach(function (el) { io.observe(el); });
   }
 
-  /* ---------- Stats arrive gift-wrapped and unwrap in view ---------- */
-  function initGifts() {
-    var stats = $(".stats");
-    if (!stats || reduceMotion) return; // CSS hides the wrapping under reduced motion
-    if (!("IntersectionObserver" in window)) { stats.classList.add("is-unwrapped"); return; }
-    // Behind the paper, reset numbers to 0 (keeping their width) so they count up once unwrapped.
-    var nums = $$("[data-count]", stats);
-    var widths = nums.map(function (el) { return el.getBoundingClientRect().width; });
-    nums.forEach(function (el, i) {
-      el.setAttribute("data-gift-count", "");
-      el.style.display = "inline-block";
-      el.style.minWidth = widths[i] + "px";
-      el.style.textAlign = "right";
-      el.textContent = "0";
+  /* ---------- Hero donation counter: digits roll into place like an odometer ---------- */
+  function initOdometer() {
+    if (reduceMotion) return; // the static digits are already correct
+    var tiles = $$("[data-odo] .odo-d");
+    var reels = tiles.map(function (tile) {
+      var digit = parseInt(tile.textContent, 10);
+      var reel = doc.createElement("span");
+      reel.className = "odo-reel";
+      // Two full turns of 0-9 so every digit visibly rolls.
+      for (var i = 0; i < 20; i++) {
+        var n = doc.createElement("span");
+        n.textContent = i % 10;
+        reel.appendChild(n);
+      }
+      tile.textContent = "";
+      tile.appendChild(reel);
+      return { reel: reel, digit: digit };
     });
-    var io = new IntersectionObserver(function (entries) {
-      if (!entries[0].isIntersecting) return;
-      io.disconnect();
-      setTimeout(function () {
-        stats.classList.add("is-unwrapped");
-        nums.forEach(function (el, i) {
-          var stat = el.closest(".stat");
-          var idx = Array.prototype.indexOf.call(stat.parentNode.children, stat);
-          setTimeout(function () { animateCount(el, widths[i]); }, 700 + idx * 150);
-        });
-      }, 350);
-    }, { threshold: 0.4 });
-    io.observe(stats);
+    setTimeout(function () {
+      reels.forEach(function (r, i) {
+        r.reel.style.transitionDelay = i * 0.12 + "s";
+        r.reel.style.transform = "translateY(-" + (10 + r.digit) * 5 + "%)";
+      });
+    }, 250);
   }
 
   /* ---------- Christmas Eve timeline as Santa's route ---------- */
@@ -575,7 +578,7 @@
     initShare();
     initCalendar();
     initReveal();
-    initGifts();
+    initOdometer();
     initRoute();
     // Nice-to-have: wait until the browser is idle.
     idle(function () {

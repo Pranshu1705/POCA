@@ -31,7 +31,7 @@ To publish, upload the whole folder to any static host. Turn on gzip or brotli c
 ## Updating next year
 
 1. Edit `js/site-data.js`: `CURRENT_YEAR`, `EVENT` (date, times, venue), `STATS` (for example 50 to 51), `HERO_TOTAL`, donate links, mailing address, `LETTER_PDF`.
-2. The page also shows these values as plain text, so it still works without JavaScript. Search `index.html` for each old value (for example `2026`, `December 24`, `50`) and update that text too.
+2. The hero counter digits (`data-odo`) are built from `HERO_TOTAL`, and the page also shows these values as plain text, so it still works without JavaScript. Search `index.html` for each old value (for example `2026`, `December 24`, `50`) and update that text too.
 3. Replace the letter content in the `#letter` section of `index.html`, and drop the new PDF into `assets/` under the filename set in `LETTER_PDF`.
 4. Update the JSON-LD block in the `<head>` (Event `startDate` and `endDate`).
 

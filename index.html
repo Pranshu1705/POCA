@@ -94,6 +94,7 @@
     <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 3h3l1.5 4.5-2.2 1.4a12 12 0 0 0 6.2 6.2l1.4-2.2L21 14.4v3a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
     <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3.5 6.5L12 13l8.5-6.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
     <symbol id="i-chat" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H10l-4.5 3.5V17H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M7.5 10h9M7.5 13h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
+    <symbol id="i-gallery" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8.5" cy="9.5" r="1.8" fill="currentColor"/><path d="M3.5 17.5l5-4.5 3.5 3 3.5-4 5 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
     <symbol id="i-gift" viewBox="0 0 24 24"><rect x="3.5" y="9" width="17" height="11.5" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M2.5 9h19M12 9v11.5M12 9C9.5 9 7 8 7 6a2 2 0 0 1 3.6-1.2L12 7l1.4-2.2A2 2 0 0 1 17 6c0 2-2.5 3-5 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
     <symbol id="i-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 19.5c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="17" cy="9" r="2.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16.5 14.2c2.6.2 4.5 2 4.5 4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
     <symbol id="i-home" viewBox="0 0 24 24"><path d="M3.5 11 12 4l8.5 7M6 9.5V20h12V9.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><path d="M12 17.5s-3-1.8-3-3.6a1.5 1.5 0 0 1 3-.4 1.5 1.5 0 0 1 3 .4c0 1.8-3 3.6-3 3.6z" fill="currentColor"/></symbol>
@@ -164,7 +165,10 @@
           <p class="hero-years ribbon"><span class="star" aria-hidden="true">★</span> 1976 – <span data-bind="current-year">2026</span> <span class="star" aria-hidden="true">★</span></p>
           <h1 id="hero-title">Superheroes Wear Uniforms Not Capes</h1>
           <p class="hero-total">
-            <span class="hero-total-num"><span data-count="935700" data-bind="hero-total">935,700</span>$</span>
+            <span class="hero-total-num">
+              <span class="visually-hidden" data-bind="hero-total">935,700$</span>
+              <span class="odo" aria-hidden="true" data-odo><span class="odo-d">9</span><span class="odo-d">3</span><span class="odo-d">5</span><span class="odo-sep">,</span><span class="odo-d">7</span><span class="odo-d">0</span><span class="odo-d">0</span><span class="odo-cur">$</span></span>
+            </span>
             <span class="hero-total-label">&amp; Giving</span>
           </p>
           <div class="cta-row hero-ctas">
@@ -173,9 +177,6 @@
             </a>
             <a class="btn btn-white btn-lg" href="https://donate.stripe.com/14A9ASczl85Gchi4Vz2sM00" target="_blank" rel="noopener" data-donate-bv>
               <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Beeville <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
-            </a>
-            <a class="btn btn-ghost-light btn-lg" href="mailto:rncj@cccranch.org?subject=Join%20as%20an%20Elf%20%E2%80%93%20POCA%2050th%20Anniversary%20Christmas%20Eve" data-elf-link>
-              <svg class="i" aria-hidden="true"><use href="#i-star"/></svg> Join as an Elf
             </a>
           </div>
           <div class="hero-sub-ctas">
@@ -186,61 +187,57 @@
 
       </div>
 
-      <div class="hero-fifty" aria-hidden="true">
-        <span class="fifty-num">50<sup>th</sup></span>
-        <span class="fifty-label"><span>★</span> Anniversary <span>★</span></span>
-      </div>
-      <div class="snowdrift" aria-hidden="true"></div>
     </section>
 
-    <!-- 2. STATS -->
+    <!-- 2. STATS: baubles hanging from a pine bough -->
     <section class="stats" aria-label="Our impact">
+      <div class="stats-bough" aria-hidden="true"></div>
       <div class="container">
         <ul class="stats-grid" data-stats>
           <li class="stat stat-gold">
-            <span class="gift-wrap paper-navy" aria-hidden="true"><span class="gift-bow"></span></span>
-            <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></span>
-            <span class="stat-num"><span data-count="50">50</span></span>
+            <span class="bauble"><span class="stat-num"><span data-count="50">50</span></span></span>
             <span class="stat-label">Years &amp; more coming</span>
           </li>
-          <li class="stat">
-            <span class="gift-wrap paper-red" aria-hidden="true"><span class="gift-bow"></span></span>
-            <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-gift"/></svg></span>
-            <span class="stat-num"><span data-count="400">400</span>K</span>
+          <li class="stat stat-red">
+            <span class="bauble"><span class="stat-num"><span data-count="400">400</span>K</span></span>
             <span class="stat-label">Donated &amp; Giving</span>
           </li>
-          <li class="stat">
-            <span class="gift-wrap paper-green" aria-hidden="true"><span class="gift-bow"></span></span>
-            <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span>
-            <span class="stat-num"><span data-count="100">100</span>+</span>
+          <li class="stat stat-navy">
+            <span class="bauble"><span class="stat-num"><span data-count="100">100</span>+</span></span>
             <span class="stat-label">Police Officers &amp; Citizens Participants</span>
           </li>
-          <li class="stat">
-            <span class="gift-wrap paper-gold" aria-hidden="true"><span class="gift-bow"></span></span>
-            <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-home"/></svg></span>
-            <span class="stat-num"><span data-count="250">250</span>+</span>
+          <li class="stat stat-green">
+            <span class="bauble"><span class="stat-num"><span data-count="250">250</span>+</span></span>
             <span class="stat-label">Family surprised each year on Christmas</span>
           </li>
         </ul>
       </div>
     </section>
 
-    <!-- 3. OUR STORY -->
+    <!-- 3. OUR STORY: an open Christmas storybook; the whole book links to the full story -->
     <section class="section story" id="story" aria-labelledby="story-title">
-      <div class="container story-grid">
-        <div class="story-photos reveal">
-          <img class="story-photo story-photo-a" src="assets/img/story-1.webp" srcset="assets/img/story-1-480.webp 480w, assets/img/story-1-600.webp 600w, assets/img/story-1.webp 720w" sizes="(max-width: 899px) calc(88vw - 28px), 480px" width="720" height="573" alt="A young child holding a wrapped gift" loading="lazy" decoding="async">
-          <img class="story-photo story-photo-b" src="assets/img/story-2.webp" srcset="assets/img/story-2-320.webp 320w, assets/img/story-2-480.webp 480w, assets/img/story-2.webp 720w" sizes="(max-width: 899px) 46vw, 250px" width="720" height="573" alt="A police officer smiling with a group of children" loading="lazy" decoding="async">
-        </div>
-        <div class="story-copy reveal">
-          <p class="eyebrow">Police Officers Corpus Christi</p>
-          <h2 id="story-title" class="section-title">Motive</h2>
-          <p class="story-sub"><span class="gold-rule" aria-hidden="true"></span>Fund Raising since 1976</p>
-          <p class="story-text">On Christmas eve day on December 24, 1976 Susan and Bob Corrigan were truly feeling the blessings that the Lord had bestowed on them. Having recently moved to Corpus Christi, having their 1 year old son, living in a house that we loved, Blessed with a great company to work for/with, Lew Borden, and so many other things to be thankful for. We decided right then to go out and see…</p>
-          <a class="btn btn-navy" href="https://pocacc.org/our-story/" target="_blank" rel="noopener">
-            Continue Story <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
-          </a>
-        </div>
+      <div class="container">
+        <article class="book reveal">
+          <span class="book-ribbon" aria-hidden="true"></span>
+          <div class="book-page book-left">
+            <figure class="story-window">
+              <img src="assets/img/story-1.webp" srcset="assets/img/story-1-480.webp 480w, assets/img/story-1-600.webp 600w, assets/img/story-1.webp 720w" sizes="(max-width: 859px) 280px, 400px" width="720" height="573" alt="A young child holding a wrapped gift" loading="lazy" decoding="async">
+            </figure>
+            <span class="story-bauble">
+              <img src="assets/img/story-2-320.webp" srcset="assets/img/story-2-320.webp 320w, assets/img/story-2-480.webp 480w" sizes="190px" width="320" height="255" alt="A police officer smiling with a group of children" loading="lazy" decoding="async">
+            </span>
+          </div>
+          <div class="book-page book-right">
+            <p class="eyebrow">Police Officers Corpus Christi</p>
+            <h2 id="story-title" class="section-title">Motive</h2>
+            <p class="story-sub"><span class="gold-rule" aria-hidden="true"></span>Fund Raising since 1976</p>
+            <p class="story-text">On Christmas eve day on December 24, 1976 Susan and Bob Corrigan were truly feeling the blessings that the Lord had bestowed on them. Having recently moved to Corpus Christi, having their 1 year old son, living in a house that we loved, Blessed with a great company to work for/with, Lew Borden, and so many other things to be thankful for. <span class="story-hook">We decided right then to go out and see…</span></p>
+            <a class="btn btn-red btn-lg story-link" href="https://pocacc.org/our-story/" target="_blank" rel="noopener">
+              Continue Story <span class="story-arrow" aria-hidden="true">→</span><svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </div>
+          <span class="page-curl" aria-hidden="true"></span>
+        </article>
       </div>
     </section>
 
@@ -540,7 +537,7 @@
             <li><a href="assets/img/gallery-8.webp" data-lightbox><img src="assets/img/gallery-8.webp" width="800" height="600" alt="Officers and volunteers posing beside an inflatable Santa outside a home" loading="lazy" decoding="async"></a></li>
             <li class="bento-more">
               <a href="https://pocacc.org/gallery/" target="_blank" rel="noopener">
-                <span class="bento-more-icon" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></span>
+                <span class="bento-more-icon" aria-hidden="true"><svg class="i"><use href="#i-gallery"/></svg></span>
                 <span class="bento-more-label">View More <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg></span><span class="visually-hidden"> (opens in a new tab)</span>
               </a>
             </li>
@@ -548,30 +545,30 @@
       </div>
     </section>
 
-    <!-- 7. DONATE BAND -->
+    <!-- 7. DONATE BAND: a wrapped present in the snow, message on its gift tag -->
     <section class="donate-band" aria-labelledby="band-title">
       <div class="band-lights" aria-hidden="true"></div>
-      <div class="container band-inner">
-        <h2 id="band-title" class="band-title">Join our cause! Donate Today!</h2>
-        <div class="band-actions">
-          <div class="cta-row band-donate">
-            <a class="btn btn-white btn-lg" href="https://donate.stripe.com/aFa28r8Z92AYcfj4LEdjO00" target="_blank" rel="noopener" data-donate-cc>
-              <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Corpus Christi <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
-            </a>
-            <a class="btn btn-white btn-lg" href="https://donate.stripe.com/14A9ASczl85Gchi4Vz2sM00" target="_blank" rel="noopener" data-donate-bv>
-              <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Beeville <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
-            </a>
+      <div class="container">
+        <div class="present reveal">
+          <span class="present-bow" aria-hidden="true"></span>
+          <span class="present-lid" aria-hidden="true"></span>
+          <div class="present-box">
+            <div class="band-tag">
+              <div class="band-tag-card">
+                <h2 id="band-title" class="band-title">Join our cause! <span>Donate Today!</span></h2>
+                <div class="cta-row band-donate">
+                  <a class="btn btn-red btn-lg" href="https://donate.stripe.com/aFa28r8Z92AYcfj4LEdjO00" target="_blank" rel="noopener" data-donate-cc>
+                    <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Corpus Christi <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                  <a class="btn btn-navy btn-lg" href="https://donate.stripe.com/14A9ASczl85Gchi4Vz2sM00" target="_blank" rel="noopener" data-donate-bv>
+                    <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Beeville <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                </div>
+                <p class="suggested">Suggested gift: <strong>$200 or more</strong></p>
+                <a class="band-elf" href="mailto:rncj@cccranch.org?subject=Join%20as%20an%20Elf%20%E2%80%93%20POCA%2050th%20Anniversary%20Christmas%20Eve" data-elf-link><svg class="i" aria-hidden="true"><use href="#i-star"/></svg> Join as an Elf</a>
+              </div>
+            </div>
           </div>
-          <div class="cta-row band-secondary">
-            <a class="btn btn-ghost-light" href="mailto:rncj@cccranch.org?subject=Join%20as%20an%20Elf%20%E2%80%93%20POCA%2050th%20Anniversary%20Christmas%20Eve" data-elf-link>
-              <svg class="i" aria-hidden="true"><use href="#i-star"/></svg> Join as an Elf
-            </a>
-            <a class="btn btn-ghost-light" href="#mail-a-check" data-scroll-mail>Mail a check</a>
-            <button class="btn btn-ghost-light js-only" type="button" data-share>
-              <svg class="i" aria-hidden="true"><use href="#i-share"/></svg> <span data-share-label>Share the letter</span>
-            </button>
-          </div>
-          <p class="suggested suggested-light">Suggested gift: <strong>$200 or more</strong></p>
         </div>
       </div>
     </section>
@@ -617,6 +614,20 @@
 
   <!-- 10. FOOTER -->
   <footer class="site-footer">
+    <div class="footer-sparkles" aria-hidden="true">
+      <span style="--x: 4%; --y: 18%; --s: 14px; --d: 0s"></span>
+      <span style="--x: 11%; --y: 62%; --s: 9px; --d: -1.3s"></span>
+      <span style="--x: 19%; --y: 30%; --s: 11px; --d: -2.6s"></span>
+      <span style="--x: 28%; --y: 78%; --s: 8px; --d: -0.7s"></span>
+      <span style="--x: 37%; --y: 14%; --s: 10px; --d: -3.4s"></span>
+      <span style="--x: 46%; --y: 52%; --s: 8px; --d: -1.9s"></span>
+      <span style="--x: 55%; --y: 22%; --s: 12px; --d: -0.3s"></span>
+      <span style="--x: 63%; --y: 70%; --s: 9px; --d: -2.9s"></span>
+      <span style="--x: 72%; --y: 34%; --s: 10px; --d: -1.1s"></span>
+      <span style="--x: 80%; --y: 82%; --s: 8px; --d: -3.8s"></span>
+      <span style="--x: 88%; --y: 20%; --s: 13px; --d: -2.2s"></span>
+      <span style="--x: 96%; --y: 56%; --s: 10px; --d: -0.9s"></span>
+    </div>
     <div class="container footer-grid">
       <div class="footer-brand">
         <img src="assets/img/logo-poca-on-dark.webp" width="260" height="61" alt="Police Officer's Christmas Angels" loading="lazy">
