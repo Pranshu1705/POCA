@@ -424,7 +424,77 @@
         animateCount(en.target, en.boundingClientRect.width);
       });
     }, { threshold: 0.6 });
-    $$("[data-count]").forEach(function (el) { io.observe(el); });
+    // Stat counters are started by initGifts once their wrapping is off.
+    $$("[data-count]").forEach(function (el) { if (!el.hasAttribute("data-gift-count")) io.observe(el); });
+  }
+
+  /* ---------- Stats arrive gift-wrapped and unwrap in view ---------- */
+  function initGifts() {
+    var stats = $(".stats");
+    if (!stats || reduceMotion) return; // CSS hides the wrapping under reduced motion
+    if (!("IntersectionObserver" in window)) { stats.classList.add("is-unwrapped"); return; }
+    // Behind the paper, reset numbers to 0 (keeping their width) so they count up once unwrapped.
+    var nums = $$("[data-count]", stats);
+    var widths = nums.map(function (el) { return el.getBoundingClientRect().width; });
+    nums.forEach(function (el, i) {
+      el.setAttribute("data-gift-count", "");
+      el.style.display = "inline-block";
+      el.style.minWidth = widths[i] + "px";
+      el.style.textAlign = "right";
+      el.textContent = "0";
+    });
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      setTimeout(function () {
+        stats.classList.add("is-unwrapped");
+        nums.forEach(function (el, i) {
+          var stat = el.closest(".stat");
+          var idx = Array.prototype.indexOf.call(stat.parentNode.children, stat);
+          setTimeout(function () { animateCount(el, widths[i]); }, 700 + idx * 150);
+        });
+      }, 350);
+    }, { threshold: 0.4 });
+    io.observe(stats);
+  }
+
+  /* ---------- Christmas Eve timeline as Santa's route ---------- */
+  function initRoute() {
+    var route = $("[data-route]");
+    if (!route) return;
+    var items = $$(".tl-item", route);
+    function update() {
+      ticking = false;
+      // reads first
+      var r = route.getBoundingClientRect();
+      var trigger = window.innerHeight * 0.6;
+      var h = r.height - 16;
+      var p = Math.min(1, Math.max(0, (trigger - (r.top + 8)) / h));
+      var passed = items.map(function (li) { return li.getBoundingClientRect().top + 10 <= trigger; });
+      // then writes
+      route.style.setProperty("--p", p.toFixed(4));
+      route.style.setProperty("--y", (p * h).toFixed(1) + "px");
+      items.forEach(function (li, i) { li.classList.toggle("is-passed", passed[i]); });
+    }
+    var ticking = false;
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+    if (!("IntersectionObserver" in window)) {
+      route.style.setProperty("--p", "1");
+      items.forEach(function (li) { li.classList.add("is-passed"); });
+      return;
+    }
+    // Only listen to scroll while the route is on screen.
+    new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", onScroll);
+        onScroll();
+      } else {
+        window.removeEventListener("scroll", onScroll);
+        window.removeEventListener("resize", onScroll);
+        update();
+      }
+    }).observe(route);
   }
 
   /* ---------- Reveal on scroll ---------- */
@@ -493,97 +563,6 @@
     });
   }
 
-  /* ---------- Survey ---------- */
-  function initSurvey() {
-    var form = $("[data-survey]");
-    if (!form) return;
-    var err = $("[data-survey-error]", form);
-    var btn = $("[data-survey-submit]", form);
-    var thanks = $("[data-survey-thanks]", form);
-    var answerEl = $("[data-survey-answer]", form);
-    var radios = $$('input[name="satisfaction"]', form);
-    var endpoint = D.SURVEY && D.SURVEY.endpoint;
-    var KEY = "poca-survey-" + (D.CURRENT_YEAR || "");
-
-    function showError(msg) { err.textContent = msg; err.hidden = false; }
-    function clearError() { err.hidden = true; err.textContent = ""; }
-    function emojiFor(answer) {
-      var r = radios.filter(function (x) { return x.value === answer; })[0];
-      var face = r && r.parentNode.querySelector(".survey-emoji");
-      return face ? face.textContent : "";
-    }
-    function showThanks(answer, moveFocus) {
-      $(".survey-fieldset", form).hidden = true;
-      btn.hidden = true;
-      $("[data-survey-emoji]", form).textContent = emojiFor(answer);
-      answerEl.textContent = answer ? "You answered: " + answer + "." : "";
-      thanks.hidden = false;
-      if (moveFocus) thanks.focus();
-    }
-    // A short burst of gold stars and snowflakes from the submit button.
-    function burst() {
-      if (reduceMotion) return;
-      var box = doc.createElement("div");
-      box.className = "survey-burst";
-      box.setAttribute("aria-hidden", "true");
-      var fr = form.getBoundingClientRect(), br = btn.getBoundingClientRect();
-      var x = br.left - fr.left + br.width / 2, y = br.top - fr.top + br.height / 2;
-      var glyphs = ["★", "✦", "❄", "★", "✶"], colors = ["#c9a24a", "#e6c877", "#a6192e", "#3f9a5a", "#14264a"];
-      for (var i = 0; i < 22; i++) {
-        var s = doc.createElement("span");
-        var ang = Math.random() * Math.PI * 2, dist = 70 + Math.random() * 120;
-        s.textContent = glyphs[i % glyphs.length];
-        s.style.cssText = "--x:" + x + "px;--y:" + y + "px;--dx:" + Math.cos(ang) * dist + "px;--dy:" + (Math.sin(ang) * dist - 40) +
-          "px;--r:" + (Math.random() * 360 - 180) + "deg;--c:" + colors[i % colors.length] + ";--size:" + (12 + Math.random() * 14) +
-          "px;--d:" + Math.random() * 0.12 + "s";
-        box.appendChild(s);
-      }
-      form.appendChild(box);
-      setTimeout(function () { box.remove(); }, 1400);
-    }
-
-    // A visitor who already answered sees the thank-you, not the form again.
-    try { var saved = localStorage.getItem(KEY); if (saved) showThanks(saved, false); } catch (e) { /* storage unavailable */ }
-
-    radios.forEach(function (r) { r.addEventListener("change", clearError); });
-
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      var picked = radios.filter(function (r) { return r.checked; })[0];
-      if (!picked) {
-        showError("Choose one answer, then select Submit Survey.");
-        radios[0].focus();
-        return;
-      }
-      var answer = picked.value;
-      function done() {
-        try { localStorage.setItem(KEY, answer); } catch (e2) { /* storage unavailable */ }
-        burst();
-        showThanks(answer, true);
-      }
-      if (!endpoint) {
-        // Front-end only for now: nothing is sent until SURVEY.endpoint is configured.
-        if (window.console) console.warn("POCA survey: no SURVEY.endpoint set in site-data.js; answer not recorded.");
-        done();
-        return;
-      }
-      btn.disabled = true;
-      btn.textContent = "Sending…";
-      fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question: "Are you satisfied with what we are doing ?", answer: answer, page: location.href, submittedAt: new Date().toISOString() })
-      }).then(function (res) {
-        if (!res.ok) throw new Error("HTTP " + res.status);
-        done();
-      }).catch(function () {
-        btn.disabled = false;
-        btn.textContent = "Submit Survey";
-        showError("We couldn’t send your answer just now. Please check your connection and try again.");
-      });
-    });
-  }
-
   var idle = window.requestIdleCallback || function (fn) { return setTimeout(fn, 200); };
 
   function init() {
@@ -595,8 +574,9 @@
     initMail();
     initShare();
     initCalendar();
-    initSurvey();
     initReveal();
+    initGifts();
+    initRoute();
     // Nice-to-have: wait until the browser is idle.
     idle(function () {
       initCountdown();

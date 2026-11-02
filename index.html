@@ -23,9 +23,9 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
-  <!-- Google Fonts (Oswald, Inter, Lora; SIL OFL) self-hosted in assets/fonts for speed. -->
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/oswald-latin.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+  <!-- Google Fonts (Fraunces, Nunito; SIL OFL) self-hosted in assets/fonts for speed. -->
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/fraunces-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/nunito-latin.woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/hero-1600.webp" imagesrcset="assets/img/hero-800.webp 800w, assets/img/hero-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="css/styles.css">
 
@@ -186,6 +186,10 @@
 
       </div>
 
+      <div class="hero-fifty" aria-hidden="true">
+        <span class="fifty-num">50<sup>th</sup></span>
+        <span class="fifty-label"><span>★</span> Anniversary <span>★</span></span>
+      </div>
       <div class="snowdrift" aria-hidden="true"></div>
     </section>
 
@@ -194,21 +198,25 @@
       <div class="container">
         <ul class="stats-grid" data-stats>
           <li class="stat stat-gold">
+            <span class="gift-wrap paper-navy" aria-hidden="true"><span class="gift-bow"></span></span>
             <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></span>
             <span class="stat-num"><span data-count="50">50</span></span>
             <span class="stat-label">Years &amp; more coming</span>
           </li>
           <li class="stat">
+            <span class="gift-wrap paper-red" aria-hidden="true"><span class="gift-bow"></span></span>
             <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-gift"/></svg></span>
             <span class="stat-num"><span data-count="400">400</span>K</span>
             <span class="stat-label">Donated &amp; Giving</span>
           </li>
           <li class="stat">
+            <span class="gift-wrap paper-green" aria-hidden="true"><span class="gift-bow"></span></span>
             <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-people"/></svg></span>
             <span class="stat-num"><span data-count="100">100</span>+</span>
             <span class="stat-label">Police Officers &amp; Citizens Participants</span>
           </li>
           <li class="stat">
+            <span class="gift-wrap paper-gold" aria-hidden="true"><span class="gift-bow"></span></span>
             <span class="stat-icon" aria-hidden="true"><svg class="i"><use href="#i-home"/></svg></span>
             <span class="stat-num"><span data-count="250">250</span>+</span>
             <span class="stat-label">Family surprised each year on Christmas</span>
@@ -236,14 +244,15 @@
       </div>
     </section>
 
-    <!-- Photo strip -->
-    <section class="photo-strip" aria-label="Christmas Eve photos">
-      <ul class="strip-row">
-        <li><img src="assets/img/strip-santa.webp" width="640" height="364" alt="Officers, volunteers and Santa lined up for a group photo in a parking lot" loading="lazy" decoding="async"></li>
-        <li><img src="assets/img/strip-tree.webp" width="640" height="480" alt="An officer and volunteers with a family beside their Christmas tree" loading="lazy" decoding="async"></li>
-        <li><img src="assets/img/strip-porch.webp" width="640" height="480" alt="Volunteers delivering groceries up the steps of a home" loading="lazy" decoding="async"></li>
-        <li><img src="assets/img/strip-joy.webp" width="640" height="480" alt="A volunteer jumping for joy on a front lawn during deliveries" loading="lazy" decoding="async"></li>
-        <li><img src="assets/img/strip-family.webp" width="600" height="800" alt="Volunteers and a family gathered together in their living room" loading="lazy" decoding="async"></li>
+    <!-- Photo garland: snapshots pinned to a string of lights -->
+    <section class="garland" aria-label="Christmas Eve photos">
+      <div class="garland-string" aria-hidden="true"></div>
+      <ul class="garland-row">
+        <li class="snap"><span class="peg" aria-hidden="true"></span><img src="assets/img/strip-santa.webp" width="640" height="364" alt="Officers, volunteers and Santa lined up for a group photo in a parking lot" loading="lazy" decoding="async"></li>
+        <li class="snap"><span class="peg" aria-hidden="true"></span><img src="assets/img/strip-tree.webp" width="640" height="480" alt="An officer and volunteers with a family beside their Christmas tree" loading="lazy" decoding="async"></li>
+        <li class="snap"><span class="peg" aria-hidden="true"></span><img src="assets/img/strip-porch.webp" width="640" height="480" alt="Volunteers delivering groceries up the steps of a home" loading="lazy" decoding="async"></li>
+        <li class="snap"><span class="peg" aria-hidden="true"></span><img src="assets/img/strip-joy.webp" width="640" height="480" alt="A volunteer jumping for joy on a front lawn during deliveries" loading="lazy" decoding="async"></li>
+        <li class="snap"><span class="peg" aria-hidden="true"></span><img src="assets/img/strip-family.webp" width="600" height="800" alt="Volunteers and a family gathered together in their living room" loading="lazy" decoding="async"></li>
       </ul>
     </section>
 
@@ -258,7 +267,10 @@
 
       <div class="container letter-wrap">
         <article class="letter-paper letter-intro reveal" aria-label="2026 50th Anniversary letter">
-          <span class="bow" aria-hidden="true"></span>
+          <div class="stamp" aria-hidden="true">
+            <span class="stamp-inner"><img src="assets/img/logo-50th-crest-180.webp" width="180" height="148" alt="" loading="lazy"></span>
+          </div>
+          <span class="postmark" aria-hidden="true"></span>
           <header class="letterhead">
             <p class="letterhead-name">Police Officer's Christmas Angels, Inc. (POCA, Inc.)</p>
             <p class="letterhead-meta">A non-profit 501(c) corporation <span aria-hidden="true">•</span> AKA Corrigan’s Christmas Grocery Event <span aria-hidden="true">•</span> <a href="mailto:rncj@cccranch.org">rncj@cccranch.org</a></p>
@@ -345,6 +357,9 @@
             <div class="cd-unit"><span class="cd-num" data-cd="s">--</span><span class="cd-lbl">Seconds</span></div>
           </div>
 
+          <div class="route" data-route>
+            <span class="route-fill" aria-hidden="true"></span>
+            <span class="route-marker" aria-hidden="true"><svg class="i"><use href="#i-gift"/></svg></span>
           <ol class="timeline">
             <li class="tl-item reveal">
               <p class="tl-time">7:00 AM</p>
@@ -379,6 +394,7 @@
               <img class="tl-photo" src="assets/img/eve-deliver.webp" width="640" height="365" alt="Volunteers and an officer delivering gifts to a family at their door" loading="lazy" decoding="async">
             </li>
           </ol>
+          </div>
 
           <div class="eve-actions">
             <button class="btn btn-gold js-only" type="button" data-add-calendar>
@@ -397,20 +413,21 @@
       </section>
 
       <div class="container letter-wrap">
-        <!-- Letter close, styled as the signed end of a Christmas card with a tear-off P.S. -->
-        <div class="letter-paper letter-close reveal">
-          <div class="close-ornament" aria-hidden="true"><span>★</span></div>
-          <p class="close-text">From all of us, thank you a million times over for helping make Christmas brighter for families who need it most. Fifty years of this tradition exists because of elves like you, and we cannot wait to celebrate this milestone with you on Christmas Eve morning.</p>
-          <p class="signoff">With gratitude and Christmas cheer,</p>
-          <ul class="signatures" aria-label="Signed by">
-            <li><span class="sig">Bob and Karen Corrigan</span></li>
-            <li><span class="sig">Alex and Polly Harris</span></li>
-            <li><span class="sig">Joe and Misty Hopkins</span></li>
-            <li><span class="sig">Joe and Blessing Willesden</span></li>
-          </ul>
+        <!-- Letter close: a red Christmas card, signed with gift tags, plus the P.S. note -->
+        <div class="letter-close cheer reveal">
+          <div class="cheer-card">
+            <span class="cheer-quote" aria-hidden="true">&ldquo;</span>
+            <p class="close-text">From all of us, thank you a million times over for helping make Christmas brighter for families who need it most. Fifty years of this tradition exists because of elves like you, and we cannot wait to celebrate this milestone with you on Christmas Eve morning.</p>
+            <p class="signoff">With gratitude and Christmas cheer,</p>
+            <ul class="tags" aria-label="Signed by">
+              <li><span class="tag">Bob and Karen Corrigan</span></li>
+              <li><span class="tag">Alex and Polly Harris</span></li>
+              <li><span class="tag">Joe and Misty Hopkins</span></li>
+              <li><span class="tag">Joe and Blessing Willesden</span></li>
+            </ul>
+          </div>
 
           <aside class="ps" aria-label="Postscript">
-            <span class="ps-cut" aria-hidden="true">✂</span>
             <p><strong class="em-red">P.S. Help us grow the tradition!</strong> If you know someone who would love to join our Annual Tradition for its 50th year, please share a copy of this letter or email us their contact information. The more elves, the more families we reach.</p>
             <div class="ps-actions">
               <button class="btn btn-navy btn-sm js-only" type="button" data-share>
@@ -426,15 +443,14 @@
 
         <!-- Questions -->
         <section class="questions" id="contact" aria-labelledby="questions-title">
-          <div class="help">
-            <figure class="help-photo reveal">
+          <div class="helpdesk reveal">
+            <div class="helpdesk-photo">
               <img src="assets/img/strip-family.webp" width="600" height="800" alt="Volunteers and a family gathered together in their living room" loading="lazy" decoding="async">
-            </figure>
+            </div>
+            <div class="helpdesk-body">
+              <h3 id="questions-title" class="helpdesk-title">Questions? We’re Here to Help</h3>
 
-            <div class="help-body">
-              <h3 id="questions-title" class="sub-title holly help-title">Questions? We’re Here to Help</h3>
-
-              <article class="person reveal" aria-labelledby="person-hopkins">
+              <article class="person" aria-labelledby="person-hopkins">
                 <span class="person-avatar" aria-hidden="true">JH</span>
                 <div class="person-info">
                   <p class="person-topic">Donation and Payment Questions</p>
@@ -449,7 +465,7 @@
                 </div>
               </article>
 
-              <article class="person reveal" aria-labelledby="person-corrigan">
+              <article class="person" aria-labelledby="person-corrigan">
                 <span class="person-avatar" aria-hidden="true">BC</span>
                 <div class="person-info">
                   <p class="person-topic">Event Questions</p>
@@ -472,15 +488,25 @@
     <section class="section thanks" aria-labelledby="thanks-title">
       <div class="container">
         <h2 id="thanks-title" class="section-title center thanks-title holly">Our Heartfelt Thanks to Every Donor: Your Support is Our Strength!</h2>
-        <div class="thanks-grid">
-          <figure class="thanks-card reveal">
-            <img src="assets/img/donor-laposada.webp" srcset="assets/img/donor-laposada-480.webp 480w, assets/img/donor-laposada.webp 800w" sizes="(max-width: 767px) 92vw, 540px" width="800" height="600" alt="Officers and volunteers with an oversized donation check and a table of toys" loading="lazy" decoding="async">
-            <figcaption>We are beyond excited and profoundly grateful to share some fantastic news with our POCA community. The La Posada Foundation, known for its incredible work and commitment to making a difference, has generously donated $10,000 to our cause!</figcaption>
-          </figure>
-          <figure class="thanks-card reveal">
-            <img src="assets/img/donor-bikes.webp" srcset="assets/img/donor-bikes-480.webp 480w, assets/img/donor-bikes.webp 800w" sizes="(max-width: 767px) 92vw, 540px" width="800" height="600" alt="A row of donated children's bicycles outside a storefront" loading="lazy" decoding="async">
-            <figcaption>"Bikes for Kids" has generously donated 16 bicycles to POCA, a gesture that greatly supports our mission and enriches our community events. We sincerely thank "Bikes for Kids" for their valuable contribution and for their support in making a positive difference in the lives of young individuals.</figcaption>
-          </figure>
+        <div class="thanks-list">
+          <article class="thank reveal">
+            <figure class="thank-photo">
+              <img src="assets/img/donor-laposada.webp" srcset="assets/img/donor-laposada-480.webp 480w, assets/img/donor-laposada.webp 800w" sizes="(max-width: 767px) 88vw, 460px" width="800" height="600" alt="Officers and volunteers with an oversized donation check and a table of toys" loading="lazy" decoding="async">
+            </figure>
+            <div class="thank-body">
+              <p class="thank-tag"><span class="thank-who">La Posada Foundation</span><span class="thank-gift">$10,000</span></p>
+              <p class="thank-text">We are beyond excited and profoundly grateful to share some fantastic news with our POCA community. The La Posada Foundation, known for its incredible work and commitment to making a difference, has generously donated $10,000 to our cause!</p>
+            </div>
+          </article>
+          <article class="thank thank-flip reveal">
+            <figure class="thank-photo">
+              <img src="assets/img/donor-bikes.webp" srcset="assets/img/donor-bikes-480.webp 480w, assets/img/donor-bikes.webp 800w" sizes="(max-width: 767px) 88vw, 460px" width="800" height="600" alt="A row of donated children's bicycles outside a storefront" loading="lazy" decoding="async">
+            </figure>
+            <div class="thank-body">
+              <p class="thank-tag"><span class="thank-who">Bikes for Kids</span><span class="thank-gift">16 bicycles</span></p>
+              <p class="thank-text">"Bikes for Kids" has generously donated 16 bicycles to POCA, a gesture that greatly supports our mission and enriches our community events. We sincerely thank "Bikes for Kids" for their valuable contribution and for their support in making a positive difference in the lives of young individuals.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -493,15 +519,16 @@
           <h2 id="gallery-title" class="section-title holly">Spreading Joy in Corpus Christi</h2>
           <p class="lede">Feel the love of sharing the Christmas spirit with Us!</p>
         </div>
-        <div class="gallery-layout">
-          <figure class="gallery-video">
-            <video controls preload="none" playsinline poster="assets/img/video-poster.webp" width="360" height="640" aria-label="POCA 2021 compilation video">
-              <source src="assets/video/poca-compilation.mp4" type="video/mp4">
-              <a href="assets/video/poca-compilation.mp4">Download the POCA 2021 compilation video</a>
-            </video>
-            <figcaption><svg class="i" aria-hidden="true"><use href="#i-star"/></svg> POCA 2021 compilation video</figcaption>
-          </figure>
-          <ul class="gallery-grid" data-gallery>
+        <ul class="gallery-grid bento" data-gallery>
+            <li class="bento-video">
+              <figure class="gallery-video">
+                <video controls preload="none" playsinline poster="assets/img/video-poster.webp" width="360" height="640" aria-label="POCA 2021 compilation video">
+                  <source src="assets/video/poca-compilation.mp4" type="video/mp4">
+                  <a href="assets/video/poca-compilation.mp4">Download the POCA 2021 compilation video</a>
+                </video>
+                <figcaption><svg class="i" aria-hidden="true"><use href="#i-star"/></svg> POCA 2021 compilation video</figcaption>
+              </figure>
+            </li>
             <li><a href="assets/img/gallery-1.webp" data-lightbox><img src="assets/img/gallery-1.webp" width="767" height="797" alt="An officer standing with a family as groceries are unpacked outside their home" loading="lazy" decoding="async"></a></li>
             <li><a href="assets/img/gallery-2.webp" data-lightbox><img src="assets/img/gallery-2.webp" width="444" height="386" alt="Volunteers and an officer posing with a family in their living room" loading="lazy" decoding="async"></a></li>
             <li><a href="assets/img/gallery-3.webp" data-lightbox><img src="assets/img/gallery-3.webp" width="444" height="386" alt="Volunteers in Santa hats making a delivery to a home" loading="lazy" decoding="async"></a></li>
@@ -511,13 +538,13 @@
             <li><a href="assets/img/gallery-7.webp" data-lightbox><img src="assets/img/gallery-7.webp" width="666" height="701" alt="Volunteers with a family and their children on the front porch" loading="lazy" decoding="async"></a></li>
             <li><a href="assets/img/gallery-11.webp" data-lightbox><img src="assets/img/gallery-11.webp" width="800" height="600" alt="Four volunteers, one in a Santa hat, smiling under a carport" loading="lazy" decoding="async"></a></li>
             <li><a href="assets/img/gallery-8.webp" data-lightbox><img src="assets/img/gallery-8.webp" width="800" height="600" alt="Officers and volunteers posing beside an inflatable Santa outside a home" loading="lazy" decoding="async"></a></li>
+            <li class="bento-more">
+              <a href="https://pocacc.org/gallery/" target="_blank" rel="noopener">
+                <span class="bento-more-icon" aria-hidden="true"><svg class="i"><use href="#i-star"/></svg></span>
+                <span class="bento-more-label">View More <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg></span><span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+            </li>
           </ul>
-        </div>
-        <p class="center">
-          <a class="btn btn-navy" href="https://pocacc.org/gallery/" target="_blank" rel="noopener">
-            View More <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
-          </a>
-        </p>
       </div>
     </section>
 
@@ -584,51 +611,6 @@
             </div>
           </li>
         </ul>
-      </div>
-    </section>
-
-    <!-- 11. SURVEY (same question and options as the live site) -->
-    <section class="section survey" id="survey" aria-labelledby="survey-title">
-      <div class="container">
-        <!-- TODO(client): responses are only saved once SURVEY.endpoint is set in js/site-data.js. -->
-        <form class="survey-card" action="#survey" method="get" novalidate data-survey>
-          <fieldset class="survey-fieldset">
-            <legend id="survey-title" class="survey-question holly">Are you satisfied with what we are doing ?</legend>
-            <p class="survey-error" id="survey-error" role="alert" data-survey-error hidden></p>
-            <div class="survey-options">
-              <label class="survey-option">
-                <input type="radio" name="satisfaction" value="Absolutely Not" aria-describedby="survey-error">
-                <span class="survey-emoji" aria-hidden="true">😞</span>
-                <span class="survey-label">Absolutely Not</span>
-              </label>
-              <label class="survey-option">
-                <input type="radio" name="satisfaction" value="Did Not" aria-describedby="survey-error">
-                <span class="survey-emoji" aria-hidden="true">🙁</span>
-                <span class="survey-label">Did Not</span>
-              </label>
-              <label class="survey-option">
-                <input type="radio" name="satisfaction" value="Neutral" aria-describedby="survey-error">
-                <span class="survey-emoji" aria-hidden="true">😐</span>
-                <span class="survey-label">Neutral</span>
-              </label>
-              <label class="survey-option">
-                <input type="radio" name="satisfaction" value="Very Much" aria-describedby="survey-error">
-                <span class="survey-emoji" aria-hidden="true">😊</span>
-                <span class="survey-label">Very Much</span>
-              </label>
-              <label class="survey-option">
-                <input type="radio" name="satisfaction" value="Very Significantly" aria-describedby="survey-error">
-                <span class="survey-emoji" aria-hidden="true">🤩</span>
-                <span class="survey-label">Very Significantly</span>
-              </label>
-            </div>
-          </fieldset>
-          <button class="btn btn-red btn-lg survey-submit" type="submit" data-survey-submit>Submit Survey</button>
-          <div class="survey-thanks" role="status" tabindex="-1" data-survey-thanks hidden>
-            <span class="survey-thanks-emoji" aria-hidden="true" data-survey-emoji></span>
-            <p><strong>Thank you for your feedback!</strong> <span data-survey-answer></span></p>
-          </div>
-        </form>
       </div>
     </section>
   </main>

@@ -69,14 +69,6 @@ window.POCA = {
   // TODO(client): drop the letter PDF into /assets with this name.
   LETTER_PDF: "assets/poca-2026-50th-anniversary-letter.pdf",
 
-  // Satisfaction survey ("Are you satisfied with what we are doing ?").
-  // TODO(client): set endpoint to a URL that accepts a JSON POST (e.g. a form service or
-  // the future backend). While it is null, visitors see the thank-you message but
-  // NO answers are recorded anywhere.
-  SURVEY: {
-    endpoint: null
-  },
-
   // TODO(client): real profile URLs. Networks left as null are not shown.
   SOCIAL: {
     facebook: null,

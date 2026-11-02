@@ -40,4 +40,3 @@ To publish, upload the whole folder to any static host. Turn on gzip or brotli c
 - `SHOW_PERSONAL_NUMBERS`: `false` keeps the cell numbers for Joe Hopkins and Bob Corrigan off the page. Set it to `true` once they agree to publish them.
 - `SOCIAL`: add real profile URLs. A network set to `null` shows no icon.
 - Minimum donation amounts are set in Stripe, not on this site.
-- `SURVEY.endpoint`: the satisfaction survey is front-end only. While this is `null`, visitors see a thank-you message but **no answers are saved**. Set it to a URL that accepts a JSON `POST` (`{ question, answer, page, submittedAt }`), such as a form service or the future backend, and answers will be sent there.
