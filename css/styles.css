@@ -219,21 +219,8 @@ html:not(.js) .js-only { display: none !important; }
 .is-scrolled .header-inner { height: 64px; }
 
 .brand { display: flex; align-items: center; gap: var(--s2); align-self: stretch; text-decoration: none; margin-right: auto; min-width: 0; }
-/* Full 50th lockup on a white tab that hangs below the bar, so its navy/red text stays legible. */
-.brand-crest {
-  align-self: flex-start; flex: none;
-  width: 156px; padding: 10px 10px 12px;
-  background: var(--white);
-  border: 2px solid var(--gold); border-top: 0;
-  border-radius: 0 0 16px 16px;
-  box-shadow: 0 10px 28px rgba(8,16,34,.35);
-  transition: width .25s var(--ease), padding .25s var(--ease);
-}
-.brand-crest img { width: 100%; height: auto; }
-.is-scrolled .brand-crest { width: 92px; padding: 6px 6px 8px; }
-.brand-divider { width: 1px; height: 36px; background: var(--gold); flex: none; }
-.brand-poca { height: 44px; width: auto; transition: height .25s var(--ease); }
-.is-scrolled .brand-poca { height: 36px; }
+.brand-poca { height: 56px; width: auto; transition: height .25s var(--ease); }
+.is-scrolled .brand-poca { height: 44px; }
 
 /* String lights hang from the header while it sits over the hero. */
 .header-lights {
@@ -297,17 +284,11 @@ html:not(.js) .nav-list a { font-size: .9375rem; min-height: 44px; padding-inlin
 @media (max-width: 479px) {
   :root { --header-h: 68px; }
   .brand { gap: 10px; }
-  .brand-crest { width: 100px; padding: 6px 6px 8px; border-radius: 0 0 12px 12px; }
-  .is-scrolled .brand-crest { width: 76px; padding: 4px 4px 6px; }
-  .brand-poca { height: 28px; }
-  .brand-divider { height: 28px; }
+  .brand-poca { height: 42px; }
   .is-scrolled .header-inner { height: 60px; }
-  .is-scrolled .brand-poca { height: 26px; }
+  .is-scrolled .brand-poca { height: 36px; }
   .nav-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
   .nav-toggle { padding: 0; width: 44px; justify-content: center; }
-}
-@media (max-width: 359px) {
-  .brand-poca, .brand-divider { display: none; }
 }
 
 /* Donate items in the menu (original site menu order). Mobile panel: full-width buttons. */
@@ -415,24 +396,6 @@ html:not(.js) .nav-list a { font-size: .9375rem; min-height: 44px; padding-inlin
 .banner-sub { font-family: var(--font-serif); font-style: italic; font-size: clamp(1rem, 2.2vw, 1.1875rem); margin: var(--s2) auto 0; max-width: 60ch; color: rgba(255,255,255,.92); }
 
 .letter-wrap { max-width: 960px; }
-.letter-paper {
-  position: relative;
-  background: var(--white);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: var(--s4) var(--s3);
-  border-top: 4px solid var(--gold);
-}
-.letter-intro { margin-top: calc(var(--s10) * -1); }
-@media (min-width: 768px) { .letter-paper { padding: var(--s6) var(--s8); } }
-.letterhead { text-align: center; padding-bottom: var(--s3); margin-bottom: var(--s4); border-bottom: 1px solid var(--line); }
-.letterhead-name { font-family: var(--font-serif); font-weight: 700; color: var(--navy); font-size: 1.1875rem; margin-bottom: 4px; }
-.letterhead-meta { font-size: .875rem; color: var(--ink-soft); margin: 0; }
-.prose { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.75; max-width: 65ch; margin-inline: auto; }
-@media (min-width: 768px) { .prose { font-size: 1.1875rem; } }
-.salutation { font-weight: 700; color: var(--red); font-size: 1.375rem; }
-.hoho { color: var(--red); }
-.em-navy { color: var(--navy); }
 .em-red { color: var(--red); }
 
 /* Give */
@@ -573,7 +536,7 @@ html:not(.js) .nav-list a { font-size: .9375rem; min-height: 44px; padding-inlin
   transition: box-shadow .25s var(--ease), transform .25s var(--ease);
 }
 .news-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-.news-card img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.news-card > img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .news-body { padding: var(--s3); display: flex; flex-direction: column; flex: 1; }
 .news-body h3 { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.35; margin-bottom: var(--s2); }
 .news-body h3 a { color: var(--navy); text-decoration: none; }
@@ -837,40 +800,6 @@ dialog::backdrop { background: rgba(12,24,48,.6); }
 .letter-banner .container { position: relative; }
 
 /* --- The letter as Christmas mail: airmail border, postage stamp, postmark --- */
-.letter-intro {
-  border: 10px solid transparent; border-radius: 6px;
-  background:
-    linear-gradient(var(--white), var(--white)) padding-box,
-    repeating-linear-gradient(-45deg, var(--red) 0 16px, var(--white) 16px 24px, var(--navy) 24px 40px, var(--white) 40px 48px) border-box;
-  box-shadow: 0 24px 60px rgba(12,24,48,.22);
-}
-.letter-intro.letter-paper { border-top-width: 10px; }
-.stamp {
-  position: absolute; top: 20px; right: 20px; width: 108px; z-index: 1;
-  padding: 7px; background: var(--white);
-  /* perforated edge */
-  -webkit-mask: radial-gradient(circle 4px at 4px 4px, transparent 98%, #000) -4px -4px / 12px 12px;
-          mask: radial-gradient(circle 4px at 4px 4px, transparent 98%, #000) -4px -4px / 12px 12px;
-  filter: drop-shadow(0 2px 3px rgba(12,24,48,.25));
-  transform: rotate(4deg);
-}
-.stamp-inner { display: block; border: 2px solid var(--gold); background: var(--cream-2); padding: 8px 6px; }
-.stamp-inner img { width: 100%; height: auto; }
-.postmark { /* wavy cancellation lines + ring, ink-style */
-  position: absolute; top: 34px; right: 92px; width: 150px; height: 74px; z-index: 2; pointer-events: none; opacity: .55;
-  background:
-    radial-gradient(circle at 26px 37px, transparent 23px, var(--navy) 23.5px, var(--navy) 25px, transparent 25.5px),
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='110' height='74' viewBox='0 0 110 74'%3E%3Cg fill='none' stroke='%2314264a' stroke-width='2'%3E%3Cpath d='M0 17c9-6 18-6 27 0s18 6 27 0 18-6 27 0 18 6 29 0'/%3E%3Cpath d='M0 31c9-6 18-6 27 0s18 6 27 0 18-6 27 0 18 6 29 0'/%3E%3Cpath d='M0 45c9-6 18-6 27 0s18 6 27 0 18-6 27 0 18 6 29 0'/%3E%3Cpath d='M0 59c9-6 18-6 27 0s18 6 27 0 18-6 27 0 18 6 29 0'/%3E%3C/g%3E%3C/svg%3E") 46px 0 / 104px 74px no-repeat;
-  transform: rotate(-8deg);
-}
-.letter-intro .letterhead { text-align: left; padding-right: 150px; }
-@media (max-width: 599px) {
-  .letter-intro { border-width: 7px; }
-  .stamp { width: 74px; top: 14px; right: 14px; padding: 5px; }
-  .postmark { display: none; }
-  .letter-intro .letterhead { padding-right: 84px; }
-}
-
 /* --- Two Ways to Give: two distinct objects --- */
 /* Option 1: a bold navy card */
 .give-online {
@@ -1311,9 +1240,6 @@ body { font-size: 1.0625rem; }
 }
 .story-sub { font-family: var(--font-serif); font-style: italic; font-size: 1.25rem; color: var(--red); margin: var(--s1) 0 var(--s3); }
 .story-text { font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.75; max-width: 54ch; margin-bottom: var(--s3); }
-.story-text::first-letter {
-  float: left; margin: .06em .1em 0 0; font-weight: 700; font-size: 4.1em; line-height: .82; color: var(--red);
-}
 .story-hook {
   font-style: italic; font-weight: 700; color: var(--red-700);
   text-decoration: underline wavy var(--gold) 2px; text-underline-offset: 5px;
@@ -1421,6 +1347,225 @@ body { font-size: 1.0625rem; }
   .band-tag-card { padding-inline: 14px; }
   .band-donate .btn { flex: 1 1 100%; min-height: 52px; padding-inline: 12px; font-size: .9375rem; white-space: nowrap; }
 }
+
+/* Hero donate buttons: the most important action on the page */
+.hero-ctas { gap: 20px; }
+.hero-ctas .btn {
+  min-height: 68px; padding-inline: 28px; gap: 12px; white-space: nowrap;
+  font-size: 1.1875rem; font-weight: 800;
+}
+.hero-ctas .btn > .i:first-child { width: 1.3em; height: 1.3em; }
+.hero-ctas .btn-red { box-shadow: 0 0 0 3px var(--gold-light), 0 12px 32px rgba(166,25,46,.6); }
+.hero-ctas .btn-white { box-shadow: 0 0 0 3px var(--gold-light), 0 12px 32px rgba(0,0,0,.4); }
+.hero-ctas .btn:hover { transform: translateY(-3px) scale(1.03); }
+.hero-sub-ctas { margin-top: var(--s3); }
+.hero-sub-ctas .suggested { font-size: 1.0625rem; }
+@media (max-width: 599px) { .hero-ctas .btn { flex: 1 1 100%; padding-inline: 16px; } }
+@media (min-width: 900px) {
+  .hero-ctas .btn { min-height: 80px; padding-inline: 44px; font-size: 1.5rem; }
+}
+
+/* Motive: 50th logo in the big arch, the two photos in hanging baubles */
+.story-window { display: grid; align-items: start; justify-items: center; padding: 34px 12px 0; background: var(--white); }
+.story-window img { width: 100%; height: auto; object-fit: contain; mix-blend-mode: multiply; }
+.story-bauble-a { left: calc(50% - 136px); width: 112px; height: 112px; transform: rotate(-5deg); }
+.story-bauble-b { left: calc(50% + 24px); width: 112px; height: 112px; transform: rotate(5deg); }
+.story-bauble-a img { object-position: 30% center; }
+@media (min-width: 860px) {
+  .story-window { padding: 48px 20px 0; }
+  .story-bauble-a { left: calc(50% - 206px); width: 180px; height: 180px; }
+  .story-bauble-b { left: calc(50% + 26px); width: 180px; height: 180px; }
+}
+
+/* News Room: 50th logo over the heading, publisher logo on each card */
+.news-crest { display: block; width: 170px; height: auto; margin: 0 auto var(--s2); }
+.news-source {
+  display: block; width: auto; height: 40px; max-width: 70%; object-fit: contain; object-position: left center;
+  margin-bottom: var(--s2);
+}
+
+/* ==========================================================================
+   Hero: 50th anniversary emblem — the first thing the page says.
+   Light rays turn behind a gold "50", stars burst out once and keep twinkling.
+   All decorative; the final state is fully visible without motion.
+   ========================================================================== */
+.hero { padding-top: calc(var(--header-h) + 36px); }
+.jubilee {
+  position: relative; display: grid; justify-items: center; margin: 0 auto var(--s2);
+  width: min(100%, 420px); isolation: isolate;
+}
+.jubilee-rays {
+  position: absolute; z-index: -1; left: 50%; top: 52%; width: 560px; height: 560px; margin: -280px 0 0 -280px;
+  border-radius: 50%; pointer-events: none;
+  background: repeating-conic-gradient(rgba(255,222,140,.30) 0 5deg, transparent 5deg 15deg);
+  -webkit-mask: radial-gradient(circle, #000 18%, rgba(0,0,0,.55) 40%, transparent 68%);
+          mask: radial-gradient(circle, #000 18%, rgba(0,0,0,.55) 40%, transparent 68%);
+  animation: rays-in 1.2s ease-out both, rays-spin 60s linear infinite;
+}
+.jubilee-glow {
+  position: absolute; z-index: -1; left: 50%; top: 52%; width: 300px; height: 300px; margin: -150px 0 0 -150px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,210,120,.42), transparent 66%); pointer-events: none;
+  animation: glow 3.4s ease-in-out infinite alternate;
+}
+@keyframes rays-in { from { opacity: 0; transform: scale(.4); } }
+@keyframes rays-spin { to { rotate: 360deg; } }
+@keyframes glow { from { opacity: .6; } to { opacity: 1; } }
+
+.jubilee-kicker {
+  font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: clamp(1.25rem, 3vw, 1.75rem);
+  color: var(--gold-light); line-height: 1; text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  animation: rise .7s var(--ease) .15s both;
+}
+.jubilee-num {
+  position: relative; display: block; font-family: var(--font-display); font-weight: 800; line-height: .86; letter-spacing: -.03em;
+  font-size: clamp(7rem, 26vw, 10rem);
+  color: transparent;
+  background:
+    linear-gradient(105deg, transparent 38%, rgba(255,255,255,.95) 50%, transparent 62%) -160% 0 / 250% 100% no-repeat,
+    linear-gradient(175deg, #fff4c8 0%, #f0d27e 30%, #c9a24a 58%, #8f6418 80%, #e2bd63 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 4px 0 #6f5417) drop-shadow(0 18px 28px rgba(0,0,0,.5));
+  animation: fifty-in 1s cubic-bezier(.34,1.56,.64,1) .3s both, shine 4.5s ease-in-out 1.4s infinite;
+}
+@keyframes fifty-in { from { opacity: 0; transform: scale(.55) translateY(14px); } }
+@keyframes shine { 0% { background-position: -160% 0, 0 0; } 45%, 100% { background-position: 260% 0, 0 0; } }
+.jubilee-years {
+  margin-top: -.15em; padding: 6px 26px; border-radius: 4px;
+  font-family: var(--font-sans); font-weight: 800; font-size: clamp(1rem, 2.6vw, 1.375rem); letter-spacing: .5em; text-indent: .5em;
+  text-transform: uppercase; color: var(--navy-900);
+  background: linear-gradient(#f4dc98, #d6ae55);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 50%, 100% 100%, 0 100%, 12px 50%);
+  animation: rise .7s var(--ease) .75s both;
+}
+.jubilee + .ribbon { animation: rise .7s var(--ease) .95s both; }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+
+/* Gold stars burst out from the 50 once, then twinkle */
+.jubilee-stars { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; }
+.jubilee-stars span {
+  position: absolute; left: 0; top: 0;
+  transform: rotate(var(--a)) translateX(var(--r));
+  animation: burst 1.1s cubic-bezier(.2,.8,.3,1) .45s both;
+}
+.jubilee-stars span::before {
+  content: ""; display: block; width: calc(var(--s) * 1.7); height: calc(var(--s) * 1.7); margin: calc(var(--s) * -.85) 0 0 calc(var(--s) * -.85);
+  background: #fff2c4;
+  clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+  filter: drop-shadow(0 0 8px #ffd36b) drop-shadow(0 0 2px #fff);
+  animation: twinkle-star 2.4s ease-in-out infinite; animation-delay: var(--d);
+}
+@keyframes burst { from { opacity: 0; transform: rotate(var(--a)) translateX(0); } }
+@keyframes twinkle-star { 0%, 100% { opacity: .35; transform: scale(.6) rotate(0); } 50% { opacity: 1; transform: scale(1.15) rotate(45deg); } }
+
+.hero h1 { font-size: clamp(2.5rem, 6vw, 4.25rem); margin-top: var(--s2); }
+.hero-total-num { font-size: clamp(2.25rem, 8vw, 4.25rem); }
+@media (max-width: 599px) {
+  .jubilee-rays { width: 400px; height: 400px; margin: -200px 0 0 -200px; }
+  .jubilee-stars span:nth-child(even) { display: none; }
+}
+@media (min-width: 1100px) { .hero-copy { max-width: 1100px; } }
+/* Desktop: counter and "& Giving" side by side to keep the donate buttons above the fold */
+@media (min-width: 900px) {
+  .hero-total { flex-direction: row; align-items: center; justify-content: center; gap: 18px; margin-bottom: var(--s3); }
+  .hero h1 { margin: 12px 0 var(--s2); }
+}
+/* Animations off: show the emblem in its finished state */
+@media (prefers-reduced-motion: reduce) {
+  .jubilee *, .jubilee *::before, .jubilee + .ribbon { animation: none !important; }
+}
+
+/* With the letter card gone, the "Celebrating 50 Years" banner leads straight into giving */
+.letter-banner { padding-bottom: var(--s8); }
+.letter-banner .banner-title { font-size: clamp(2.5rem, 7vw, 4.5rem); }
+.letter-wrap > .give:first-child { margin-top: var(--s8); }
+
+/* ==========================================================================
+   Hero split: copy + donate on the left, the 50 emblem on the right (desktop)
+   ========================================================================== */
+.hero-emblem { display: grid; justify-items: center; }
+.hero-total-num { font-size: clamp(1.75rem, 6vw, 3rem); }
+.hero-total-label { font-size: clamp(1.25rem, 2.6vw, 1.625rem); }
+@media (min-width: 1100px) {
+  .hero::before {
+    background:
+      linear-gradient(90deg, rgba(12,24,48,.92) 0%, rgba(12,24,48,.78) 50%, rgba(12,24,48,.6) 100%),
+      linear-gradient(0deg, rgba(12,24,48,.6), rgba(12,24,48,0) 40%);
+  }
+  .hero-inner { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; gap: var(--s6); justify-items: stretch; }
+  .hero-copy { order: 1; text-align: left; max-width: none; }
+  .hero-emblem { order: 2; }
+  .hero h1 { margin: 0 0 var(--s3); font-size: clamp(3rem, 4.6vw, 4.5rem); }
+  .hero-total { justify-content: flex-start; }
+  .hero-ctas, .hero-sub-ctas { justify-content: flex-start; }
+  .hero-ctas { flex-wrap: nowrap; gap: 14px; }
+  .hero-ctas .btn { min-height: 68px; padding-inline: 24px; font-size: 1.125rem; }
+  .jubilee { width: 100%; }
+  .jubilee-num { font-size: clamp(10rem, 15vw, 14rem); }
+  .jubilee-kicker { font-size: 2rem; }
+  .jubilee-years { font-size: 1.5rem; }
+  .jubilee-rays { width: 680px; height: 680px; margin: -340px 0 0 -340px; }
+  .jubilee-glow { width: 380px; height: 380px; margin: -190px 0 0 -190px; }
+}
+
+/* ==========================================================================
+   "Celebrating 50 Years" section: 1976 and 2026 joined by a gold line through the 50th medal
+   ========================================================================== */
+.fifty { padding-block: var(--s10) var(--s10); }
+.fifty::before { font-size: clamp(18rem, 44vw, 34rem); -webkit-text-stroke-color: rgba(230,200,119,.12); }
+.fifty-span {
+  position: relative; display: grid; gap: var(--s4); align-items: center; justify-items: center;
+  max-width: 1080px; margin: var(--s6) auto 0;
+}
+.fifty-end { max-width: 34ch; text-align: center; }
+.fifty-year {
+  margin: 0 0 var(--s1); font-family: var(--font-display); font-weight: 800; line-height: 1;
+  font-size: clamp(3rem, 7vw, 4.75rem); letter-spacing: -.02em; color: var(--gold-light);
+  text-shadow: 0 6px 24px rgba(0,0,0,.35);
+}
+.fifty-text { margin: 0; font-family: var(--font-serif); font-size: 1.125rem; line-height: 1.65; color: rgba(255,255,255,.9); }
+.fifty-text strong { color: var(--gold-light); }
+.fifty-medal {
+  position: relative; display: grid; place-items: center; width: clamp(220px, 30vw, 300px); aspect-ratio: 1;
+  border-radius: 50%; background: var(--white); padding: 12%;
+  box-shadow: 0 0 0 5px var(--gold), 0 20px 40px rgba(0,0,0,.35);
+}
+.fifty-medal img { width: 100%; height: auto; }
+.fifty-medal { isolation: isolate; }
+.fifty-quote {
+  max-width: 30ch; margin: var(--s8) auto 0; padding: 0; text-align: center;
+  font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: clamp(1.5rem, 3.4vw, 2.25rem); line-height: 1.35;
+  color: var(--white); text-wrap: balance;
+}
+.fifty-quote::before { content: "\201C"; display: block; height: .5em; font-size: 2.6em; line-height: 1; color: var(--gold); }
+.fifty-photo {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--s2) var(--s3);
+  max-width: 880px; margin: var(--s6) auto 0; padding: var(--s3); border-radius: var(--radius-lg);
+  border: 1px solid rgba(230,200,119,.45); background: rgba(255,255,255,.05);
+}
+.fifty-photo p { margin: 0; flex: 1 1 320px; display: flex; gap: 10px; align-items: flex-start; text-align: left; font-weight: 700; color: var(--white); }
+.fifty-photo .i { flex: none; color: var(--gold-light); margin-top: 3px; }
+@media (min-width: 900px) {
+  .fifty-span { grid-template-columns: 1fr auto 1fr; gap: var(--s5); }
+  .fifty-span::before { /* the gold line from 1976 to 2026 */
+    content: ""; position: absolute; z-index: -1; left: 6%; right: 6%; top: 50%; height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold) 15%, var(--gold-light) 50%, var(--gold) 85%, transparent);
+  }
+  .fifty-end { text-align: right; }
+  .fifty-end-now { text-align: left; }
+  .fifty-end .fifty-year { display: inline-block; padding: 0 12px; background: var(--navy); }
+}
+/* Hero: one simple line where the counter used to be */
+.hero-lede { max-width: 34ch; margin: 0 0 var(--s4); font-family: var(--font-serif); font-style: italic; font-size: clamp(1.25rem, 2.4vw, 1.625rem); line-height: 1.45; color: rgba(255,255,255,.92); }
+@media (max-width: 1099px) { .hero-lede { margin-inline: auto; } }
+/* The charity total lives in the 50 Years section */
+.fifty .fifty-total { justify-content: center; margin: 0 0 var(--s4); }
+
+/* Simple donate row inside the 50 Years section */
+.fifty-give { margin: var(--s8) auto 0; text-align: center; }
+.fifty-give-title { margin: 0 0 var(--s2); font-family: var(--font-display); font-weight: 700; font-size: 1.5rem; color: var(--gold-light); }
+.fifty-give-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.fifty-give .suggested { margin-top: 12px; }
+@media (max-width: 599px) { .fifty-give-row .btn { flex: 1 1 100%; } }
 
 /* ---------- Rendering performance ---------- */
 /* Skip layout/paint of below-the-fold sections until they approach the viewport. */

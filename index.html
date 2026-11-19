@@ -114,10 +114,6 @@
   <header class="site-header" id="top" data-header>
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="Police Officers Christmas Angels, home">
-        <span class="brand-crest">
-          <img src="assets/img/logo-50th-crest-360.webp" srcset="assets/img/logo-50th-crest-180.webp 180w, assets/img/logo-50th-crest-360.webp 360w" sizes="(max-width: 479px) 96px, 150px" width="360" height="295" alt="Police Officers Christmas Angels 50th Anniversary, since 1976">
-        </span>
-        <span class="brand-divider" aria-hidden="true"></span>
         <img class="brand-poca" src="assets/img/logo-poca-on-dark.webp" width="260" height="61" alt="Police Officer's Christmas Angels">
       </a>
 
@@ -161,16 +157,34 @@
         <img src="assets/img/hero-1600.webp" width="1600" height="710" alt="" fetchpriority="high" decoding="async">
       </picture>
       <div class="container hero-inner">
+        <div class="hero-emblem">
+            <div class="jubilee" aria-hidden="true">
+              <span class="jubilee-rays"></span>
+              <span class="jubilee-glow"></span>
+              <span class="jubilee-stars">
+              <span style="--a: 0deg; --r: 150px; --s: 14px; --d: 0s"></span>
+              <span style="--a: 30deg; --r: 175px; --s: 9px; --d: -0.6s"></span>
+              <span style="--a: 60deg; --r: 140px; --s: 11px; --d: -1.2s"></span>
+              <span style="--a: 95deg; --r: 185px; --s: 8px; --d: -1.8s"></span>
+              <span style="--a: 125deg; --r: 150px; --s: 13px; --d: -0.3s"></span>
+              <span style="--a: 155deg; --r: 178px; --s: 9px; --d: -2.1s"></span>
+              <span style="--a: 185deg; --r: 145px; --s: 12px; --d: -0.9s"></span>
+              <span style="--a: 215deg; --r: 182px; --s: 8px; --d: -1.5s"></span>
+              <span style="--a: 245deg; --r: 160px; --s: 10px; --d: -0.4s"></span>
+              <span style="--a: 280deg; --r: 188px; --s: 9px; --d: -2.4s"></span>
+              <span style="--a: 310deg; --r: 150px; --s: 12px; --d: -1.1s"></span>
+              <span style="--a: 340deg; --r: 172px; --s: 8px; --d: -1.7s"></span>
+              </span>
+              <span class="jubilee-kicker">Celebrating</span>
+              <span class="jubilee-num">50</span>
+              <span class="jubilee-years">Years</span>
+            </div>
+            <p class="visually-hidden">Celebrating 50 Years</p>
+            <p class="hero-years ribbon"><span class="star" aria-hidden="true">★</span> 1976 – <span data-bind="current-year">2026</span> <span class="star" aria-hidden="true">★</span></p>
+        </div>
         <div class="hero-copy">
-          <p class="hero-years ribbon"><span class="star" aria-hidden="true">★</span> 1976 – <span data-bind="current-year">2026</span> <span class="star" aria-hidden="true">★</span></p>
           <h1 id="hero-title">Superheroes Wear Uniforms Not Capes</h1>
-          <p class="hero-total">
-            <span class="hero-total-num">
-              <span class="visually-hidden" data-bind="hero-total">935,700$</span>
-              <span class="odo" aria-hidden="true" data-odo><span class="odo-d">9</span><span class="odo-d">3</span><span class="odo-d">5</span><span class="odo-sep">,</span><span class="odo-d">7</span><span class="odo-d">0</span><span class="odo-d">0</span><span class="odo-cur">$</span></span>
-            </span>
-            <span class="hero-total-label">&amp; Giving</span>
-          </p>
+          <p class="hero-lede">Half a century of Christmas Eve groceries, kindness, and hope.</p>
           <div class="cta-row hero-ctas">
             <a class="btn btn-red btn-lg" href="https://donate.stripe.com/aFa28r8Z92AYcfj4LEdjO00" target="_blank" rel="noopener" data-donate-cc>
               <svg class="i" aria-hidden="true"><use href="#i-heart"/></svg> Donate Corpus Christi <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span>
@@ -221,9 +235,12 @@
           <span class="book-ribbon" aria-hidden="true"></span>
           <div class="book-page book-left">
             <figure class="story-window">
-              <img src="assets/img/story-1.webp" srcset="assets/img/story-1-480.webp 480w, assets/img/story-1-600.webp 600w, assets/img/story-1.webp 720w" sizes="(max-width: 859px) 280px, 400px" width="720" height="573" alt="A young child holding a wrapped gift" loading="lazy" decoding="async">
+              <img src="assets/img/logo-50th-crest-360.webp" srcset="assets/img/logo-50th-crest-360.webp 360w, assets/img/logo-50th-full.webp 720w" sizes="(max-width: 859px) 220px, 300px" width="360" height="295" alt="Police Officers Christmas Angels 50th Anniversary, since 1976" loading="lazy" decoding="async">
             </figure>
-            <span class="story-bauble">
+            <span class="story-bauble story-bauble-a">
+              <img src="assets/img/story-1-480.webp" width="480" height="382" alt="A young child holding a wrapped gift" loading="lazy" decoding="async">
+            </span>
+            <span class="story-bauble story-bauble-b">
               <img src="assets/img/story-2-320.webp" srcset="assets/img/story-2-320.webp 320w, assets/img/story-2-480.webp 480w" sizes="190px" width="320" height="255" alt="A police officer smiling with a group of children" loading="lazy" decoding="async">
             </span>
           </div>
@@ -255,32 +272,51 @@
 
     <!-- 4. 50TH ANNIVERSARY LETTER -->
     <section class="letter" id="letter" aria-labelledby="letter-title">
-      <div class="letter-banner">
+      <div class="letter-banner fifty">
         <div class="container">
           <h2 id="letter-title" class="banner-title"><span class="star" aria-hidden="true">★</span> Celebrating 50 Years <span class="star" aria-hidden="true">★</span></h2>
           <p class="banner-sub">1976 to 2026 &nbsp;•&nbsp; Half a century of Christmas Eve groceries, kindness, and hope</p>
+
+          <div class="fifty-span reveal">
+            <div class="fifty-end">
+              <p class="fifty-year">1976</p>
+              <p class="fifty-text">Since 1976, the Corrigan Family and Friends have gathered before sunrise on Christmas Eve to deliver groceries to families in need, identified by the Corpus Christi Police Department.</p>
+            </div>
+            <div class="fifty-medal">
+              <img src="assets/img/logo-50th-full.webp" width="720" height="638" alt="Police Officers Christmas Angels 50th Anniversary, since 1976" loading="lazy" decoding="async">
+            </div>
+            <div class="fifty-end fifty-end-now">
+              <p class="fifty-year">2026</p>
+              <p class="fifty-text">This Christmas Eve marks something truly special: our <strong>50th Anniversary</strong>.</p>
+            </div>
+          </div>
+
+          <blockquote class="fifty-quote reveal">What began as a small act of kindness has grown into a cherished community tradition, and every one of you is part of that story.</blockquote>
+
+          <div class="fifty-give reveal">
+            <p class="fifty-give-title">Be part of the 50th</p>
+            <p class="hero-total fifty-total">
+              <span class="hero-total-num">
+                <span class="visually-hidden" data-bind="hero-total">935,700$</span>
+                <span class="odo" aria-hidden="true" data-odo><span class="odo-d">9</span><span class="odo-d">3</span><span class="odo-d">5</span><span class="odo-sep">,</span><span class="odo-d">7</span><span class="odo-d">0</span><span class="odo-d">0</span><span class="odo-cur">$</span></span>
+              </span>
+              <span class="hero-total-label">&amp; Giving</span>
+            </p>
+            <div class="fifty-give-row">
+              <a class="btn btn-white" href="https://donate.stripe.com/aFa28r8Z92AYcfj4LEdjO00" target="_blank" rel="noopener" data-donate-cc>Donate Corpus Christi <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+              <a class="btn btn-ghost-light" href="https://donate.stripe.com/14A9ASczl85Gchi4Vz2sM00" target="_blank" rel="noopener" data-donate-bv>Donate Beeville <svg class="i i-ext" aria-hidden="true"><use href="#i-ext"/></svg><span class="visually-hidden"> (opens in a new tab)</span></a>
+            </div>
+            <p class="suggested suggested-light">Suggested gift: <strong>$200 or more</strong></p>
+          </div>
+
+          <div class="fifty-photo reveal">
+            <p><svg class="i" aria-hidden="true"><use href="#i-star"/></svg> We will also take a group photo at 7:30 am to commemorate our 50th anniversary, so please be on time!</p>
+            <a class="btn btn-gold" href="#christmas-eve">Christmas Eve Morning <span aria-hidden="true">→</span></a>
+          </div>
         </div>
       </div>
 
       <div class="container letter-wrap">
-        <article class="letter-paper letter-intro reveal" aria-label="2026 50th Anniversary letter">
-          <div class="stamp" aria-hidden="true">
-            <span class="stamp-inner"><img src="assets/img/logo-50th-crest-180.webp" width="180" height="148" alt="" loading="lazy"></span>
-          </div>
-          <span class="postmark" aria-hidden="true"></span>
-          <header class="letterhead">
-            <p class="letterhead-name">Police Officer's Christmas Angels, Inc. (POCA, Inc.)</p>
-            <p class="letterhead-meta">A non-profit 501(c) corporation <span aria-hidden="true">•</span> AKA Corrigan’s Christmas Grocery Event <span aria-hidden="true">•</span> <a href="mailto:rncj@cccranch.org">rncj@cccranch.org</a></p>
-          </header>
-
-          <div class="prose">
-            <p class="salutation">To all my Elves,</p>
-            <p><strong class="hoho">Ho! Ho! Ho!</strong> This Christmas Eve marks something truly special: our <strong class="em-navy">50th Anniversary</strong>. Since 1976, the Corrigan Family and Friends have gathered before sunrise on Christmas Eve to deliver groceries to families in need, identified by the Corpus Christi Police Department. What began as a small act of kindness has grown into a cherished community tradition, and every one of you is part of that story.</p>
-            <p>Last year, together, we delivered to <strong class="em-red">135 families</strong>. For our golden anniversary we would love to match that number and reach even more homes. Please help us celebrate 50 years by giving generously and by inviting new elves to join the team.</p>
-            <p>A gift of <strong class="em-red">$200 or more</strong> makes a real difference on a family’s Christmas table. Please let us know if we can count on you, then choose whichever way to give is easiest below.</p>
-          </div>
-        </article>
-
         <!-- Two Easy Ways to Give -->
         <section class="give" aria-labelledby="give-title">
           <h3 id="give-title" class="sub-title center holly">Two Easy Ways to Give</h3>
@@ -588,6 +624,7 @@
     <section class="section news" id="news" aria-labelledby="news-title">
       <div class="container">
         <div class="section-head center">
+          <img class="news-crest" src="assets/img/logo-50th-crest-360.webp" srcset="assets/img/logo-50th-crest-180.webp 180w, assets/img/logo-50th-crest-360.webp 360w" sizes="170px" width="360" height="295" alt="Police Officers Christmas Angels 50th Anniversary, since 1976" loading="lazy" decoding="async">
           <h2 id="news-title" class="section-title holly">News Room</h2>
         </div>
         <!-- Live site lists "CCPD delivers food baskets, toys to 150 Coastal Bend families" twice
@@ -596,6 +633,7 @@
           <li class="news-card reveal">
             <img src="assets/img/news-ccpd.webp" width="307" height="227" alt="Dancers in Santa outfits performing in front of a police vehicle at night" loading="lazy" decoding="async">
             <div class="news-body">
+              <img class="news-source" src="assets/img/press-3news.webp" width="345" height="87" alt="3News" loading="lazy">
               <h3><a href="https://pocacc.org/ccpd-delivers-food-baskets-toys-to-150-coastal-bend-families-2/" target="_blank" rel="noopener">CCPD delivers food baskets, toys to 150 Coastal Bend families<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
               <p class="news-more" aria-hidden="true">Read More » <svg class="i i-ext"><use href="#i-ext"/></svg></p>
             </div>
@@ -603,6 +641,7 @@
           <li class="news-card reveal">
             <img src="assets/img/news-katia.webp" width="640" height="371" alt="A Corpus Christi police officer speaking with a woman in front of a department backdrop" loading="lazy" decoding="async">
             <div class="news-body">
+              <img class="news-source" src="assets/img/press-kris6.webp" width="280" height="93" alt="KRIS 6 News Corpus Christi" loading="lazy">
               <h3><a href="https://pocacc.org/our-katia-uriarte-enlisted-the-help-of-corpus-christi-police-department-senior-officer-javier-cantu/" target="_blank" rel="noopener">Our Katia Uriarte enlisted the help of Corpus Christi Police Department Senior Officer Javier Cantu.<span class="visually-hidden"> (opens in a new tab)</span></a></h3>
               <p class="news-more" aria-hidden="true">Read More » <svg class="i i-ext"><use href="#i-ext"/></svg></p>
             </div>

@@ -453,12 +453,21 @@
       tile.appendChild(reel);
       return { reel: reel, digit: digit };
     });
-    setTimeout(function () {
+    function roll() {
       reels.forEach(function (r, i) {
         r.reel.style.transitionDelay = i * 0.12 + "s";
         r.reel.style.transform = "translateY(-" + (10 + r.digit) * 5 + "%)";
       });
-    }, 250);
+    }
+    // Roll once the counter scrolls into view.
+    var box = $("[data-odo]");
+    if (!box || !("IntersectionObserver" in window)) { setTimeout(roll, 250); return; }
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      io.disconnect();
+      setTimeout(roll, 150);
+    }, { threshold: 0.6 });
+    io.observe(box);
   }
 
   /* ---------- Christmas Eve timeline as Santa's route ---------- */
