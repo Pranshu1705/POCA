@@ -3,7 +3,9 @@
     <filter id="g" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
   </defs>
   <g filter="url(#g)">
-    <circle cx="30" cy="31" r="10" fill="#f2c94c" opacity=".8"/>
-    <circle cx="130" cy="31" r="10" fill="#46b97a" opacity=".7"/>
+    <circle cx="30" cy="31" r="10" fill="#f2c94c" opacity=".85"/>
+    <circle cx="70" cy="31" r="10" fill="#e5484d" opacity=".8"/>
+    <circle cx="130" cy="31" r="10" fill="#46b97a" opacity=".8"/>
+    <circle cx="170" cy="31" r="10" fill="#fff4d6" opacity=".85"/>
   </g>
 </svg>

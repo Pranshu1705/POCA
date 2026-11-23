@@ -524,6 +524,41 @@
     row.classList.add("is-marquee");
   }
 
+  /* ---------- Glitter: gold stars and specks scattered in [data-sparkles] ---------- */
+  function initSparkles() {
+    $$("[data-sparkles]").forEach(function (box, b) {
+      var n = parseInt(box.getAttribute("data-sparkles"), 10) || 30;
+      var seed = 7 + b * 13;
+      function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; } // same layout every visit
+      var html = "";
+      for (var i = 0; i < n; i++) {
+        var star = i % 3 === 0;
+        var size = star ? 8 + rnd() * 8 : 2 + rnd() * 3;
+        html += '<span class="' + (star ? "spk-star" : "spk-dot") + '" style="--x:' + (rnd() * 100).toFixed(1) + "%;--y:" + (rnd() * 100).toFixed(1) +
+          "%;--s:" + size.toFixed(1) + "px;--d:" + (-rnd() * 4).toFixed(2) + "s;--t:" + (2.4 + rnd() * 2.4).toFixed(2) + 's"></span>';
+      }
+      box.innerHTML = html;
+    });
+  }
+
+  /* ---------- Falling snow in the inner-page heroes ---------- */
+  function initSnow() {
+    if (reduceMotion) return;
+    $$("[data-snow]").forEach(function (hero) {
+      var layer = document.createElement("div");
+      layer.className = "snowfall";
+      layer.setAttribute("aria-hidden", "true");
+      var html = "";
+      for (var i = 0; i < 46; i++) {
+        var s = 3 + Math.random() * 6;
+        html += '<span style="--x:' + (Math.random() * 100).toFixed(1) + "%;--s:" + s.toFixed(1) + "px;--o:" + (0.45 + Math.random() * 0.5).toFixed(2) +
+          ";--t:" + (7 + Math.random() * 9).toFixed(1) + "s;--d:" + (-Math.random() * 16).toFixed(1) + "s;--w:" + (Math.random() * 60 - 30).toFixed(0) + 'px"></span>';
+      }
+      layer.innerHTML = html;
+      hero.insertBefore(layer, hero.firstChild);
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   function initReveal() {
     var els = $$(".reveal");
@@ -605,6 +640,8 @@
     initOdometer();
     initRoute();
     initGarland();
+    initSparkles();
+    initSnow();
     // Nice-to-have: wait until the browser is idle.
     idle(function () {
       initCountdown();
