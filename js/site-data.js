@@ -61,12 +61,12 @@ window.POCA = {
     end: "2026-12-24T11:00:00-06:00",
     dateLabel: "Thursday, December 24, 2026",
     title: "POCA Christmas Eve Grocery Delivery (50th Anniversary)",
-    venue: "Windsor Park Elementary School",
-    address: "4525 South Alameda Street, Corpus Christi, TX",
-    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Windsor+Park+Elementary+School%2C+4525+South+Alameda+Street%2C+Corpus+Christi%2C+TX"
+    venue: "Coastal Bend Food Bank",
+    address: "5442 Bear Lane, Corpus Christi, TX",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Coastal+Bend+Food+Bank%2C+5442+Bear+Lane%2C+Corpus+Christi%2C+TX"
   },
 
-  // TODO(client): drop the letter PDF into /assets with this name.
+  // The 2026 50th Anniversary letter, linked from "Download the letter (PDF)".
   LETTER_PDF: "assets/poca-2026-50th-anniversary-letter.pdf",
 
   // TODO(client): real profile URLs. Networks left as null are not shown.

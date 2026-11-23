@@ -5,7 +5,8 @@ A single static page for Police Officers Christmas Angels (POCA, Inc.). It's pla
 ## Files
 
 ```
-index.html            page content (all copy lives here)
+index.html            home page (all copy lives here)
+our-story/, gallery/, contact-us/   inner pages (same header, footer and styles)
 css/styles.css        styles; colours and spacing are variables at the top
 js/site-data.js       values to edit each year (see below)
 js/main.js            enhancements (donate chooser, menu, lightbox, countdown, .ics, share, counters)

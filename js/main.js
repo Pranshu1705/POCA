@@ -335,7 +335,7 @@
       var E = D.EVENT;
       var desc = "7:00 AM Please arrive early at " + E.venue + ", " + E.address + ".\n" +
         "7:30 AM Team Meeting and Staging (50th anniversary group photo).\n" +
-        "Next: Load the groceries at the HEB east parking lot, Robert Drive and Alameda Street.\n" +
+        "Next: Load the groceries. Gather with your Police Officer team leader and the order assigned by your team number.\n" +
         "Deliver: Spread the Christmas joy (typically 2 to 3 hours).\n" + (D.SITE_URL || "");
       var lines = [
         "BEGIN:VCALENDAR",
@@ -509,6 +509,21 @@
     }).observe(route);
   }
 
+  /* ---------- Photo garland: endless slow scroll (pauses on hover) ---------- */
+  function initGarland() {
+    var row = $("[data-garland]");
+    if (!row || reduceMotion) return; // without motion it stays a swipeable row
+    var items = $$(".snap", row);
+    items.forEach(function (li) {
+      var copy = li.cloneNode(true);
+      copy.setAttribute("aria-hidden", "true");
+      $$("img", copy).forEach(function (img) { img.alt = ""; });
+      row.appendChild(copy);
+    });
+    row.style.setProperty("--dur", items.length * 5 + "s");
+    row.classList.add("is-marquee");
+  }
+
   /* ---------- Reveal on scroll ---------- */
   function initReveal() {
     var els = $$(".reveal");
@@ -589,6 +604,7 @@
     initReveal();
     initOdometer();
     initRoute();
+    initGarland();
     // Nice-to-have: wait until the browser is idle.
     idle(function () {
       initCountdown();
