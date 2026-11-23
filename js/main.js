@@ -301,11 +301,13 @@
   }
 
   /* ---------- Share ---------- */
-  // Home page of wherever this site is running, so shared links never point at the old site.
+  // The live address of this page, wherever it is published (CMS, staging or final domain),
+  // so shared links never point at the old site.
   function homeUrl() {
-    return /^https?:$/.test(location.protocol) ? location.origin + "/" : (D.SITE_URL || location.href.split("#")[0]);
+    return /^https?:$/.test(location.protocol) ? location.origin + location.pathname : (D.SITE_URL || location.href.split("#")[0]);
   }
 
+  // "Share this letter" shares the website link, opening at the Celebrating 50 Years section.
   function initShare() {
     var url = homeUrl() + "#letter";
     var shareData = {
