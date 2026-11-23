@@ -301,8 +301,13 @@
   }
 
   /* ---------- Share ---------- */
+  // Home page of wherever this site is running, so shared links never point at the old site.
+  function homeUrl() {
+    return /^https?:$/.test(location.protocol) ? location.origin + "/" : (D.SITE_URL || location.href.split("#")[0]);
+  }
+
   function initShare() {
-    var url = (D.SITE_URL || location.href.split("#")[0]) + "#letter";
+    var url = homeUrl() + "#letter";
     var shareData = {
       title: "Police Officers Christmas Angels: Celebrating 50 Years",
       text: "Join POCA for our 50th Christmas Eve of grocery deliveries in Corpus Christi.",
@@ -336,7 +341,7 @@
       var desc = "7:00 AM Please arrive early at " + E.venue + ", " + E.address + ".\n" +
         "7:30 AM Team Meeting and Staging (50th anniversary group photo).\n" +
         "Next: Load the groceries. Gather with your Police Officer team leader and the order assigned by your team number.\n" +
-        "Deliver: Spread the Christmas joy (typically 2 to 3 hours).\n" + (D.SITE_URL || "");
+        "Deliver: Spread the Christmas joy (typically 2 to 3 hours).\n" + homeUrl();
       var lines = [
         "BEGIN:VCALENDAR",
         "VERSION:2.0",
@@ -351,7 +356,7 @@
         "SUMMARY:" + icsEscape(E.title),
         "LOCATION:" + icsEscape(E.venue + ", " + E.address),
         "DESCRIPTION:" + icsEscape(desc),
-        "URL:" + (D.SITE_URL || ""),
+        "URL:" + homeUrl(),
         "BEGIN:VALARM",
         "TRIGGER:-PT12H",
         "ACTION:DISPLAY",
